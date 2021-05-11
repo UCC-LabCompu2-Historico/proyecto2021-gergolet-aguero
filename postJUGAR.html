@@ -5,34 +5,62 @@
     <title>SUDOKU - Modos</title>
     <link rel="shortcut icon" href="Imagenes/iconosudoku.png" type="image/png">
     <link rel="stylesheet" href="Estilo.css" type="text/css">
+    <link rel="stylesheet" href="EstiloIconos.css" type="text/css">
 </head>
-<div>
-    <h2>SELECCIONE EL MODO DE JUEGO</h2>
-    <form>
-        <div>
-            <input class="form-check-input" type="radio" name="radioButton_sexo" id="sexoM" value="masculino">
-            <label class="form-check-label" for="sexoM">MODO 1 </label>
-        </div>
-        <div>
-            <input class="form-check-input" type="radio" name="radioButton_sexo" id="sexoF" value="femenino">
-            <label class="form-check-label" for="sexoF">MODO 2</label>
-        </div>
-    </form>
-</div>
-
-<div>
-    <h2>NOMBRE DE LOS PARTICIPANTES</h2>
-    <form>
-            <section>
-            <input type="text" class="form-control" id="input_nombre1" aria-describedby="nombre1" placeholder="Jugador 1">
-            </section>
-
-        <section>
-            <input type="text" class="form-control" id="input_nombre2" aria-describedby="nombre2" placeholder="Jugador 2">
-             </section>
-    </form>
-</div>
 <body>
+<nav>
+    <a type=button" href="index.html" class="Volver_Atras">&#8249;</a>
+</nav>
+<div class="CajaGrande">
+    <h2>MODO DE JUEGO</h2>
+    <form class="formulario">
+        <div class="CajaPequeña">
+            <input type="radio" name="radioButton_modo" id="M1" value="modo1" required>
+            <label for="M1">MODO 1 </label>
+        </div>
+        <br></br>
+        <div class="CajaPequeña">
+            <input type="radio" name="radioButton_modo" id="M2" value="modo2" required>
+            <label for="M2">MODO 2</label>
+        </div>
+    </form>
+</div>
 
+<div class="CajaGrande2">
+    <h2>PARTICIPANTES</h2>
+    <form class="form">
+
+        <input type="text" required>
+        <label class="lbl-nombre">
+                <span class="text-nomb">
+                    Jugador 1
+                </span>
+        </label>
+    </form>
+    <form class="form">
+
+
+        <input type="text" required>
+        <label class="lbl-nombre">
+                <span class="text-nomb">
+                    Jugador 2
+                </span>
+        </label>
+
+    </form>
+</div>
+
+<div class="CajaAlargada">
+    <h2>INSTRUCCIONES</h2>
+        <section>
+            <p> Modo 1: el juego comenzara con todos los casilleros vacios.
+            </p>
+            <p> Modo 2: el juego comenzara con 40 valores aleatorios.
+            </p>
+            <p>
+                <u>REGLAS</u>: el ganador será aquel que complete mas casillas. Aquel jugador que llegue a 3 queda eliminado del juego, y deberá esperar que el otro jugador termine su partida.
+            </p>
+        </section>
+</div>
 </body>
 </html>

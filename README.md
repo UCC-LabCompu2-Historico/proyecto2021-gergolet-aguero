@@ -1,5 +1,14 @@
-# proyecto2021
-Estructura de Proyecto Lab de Compu II - 2021
+# SUDOKU 
+Esta pagina pertenece a un juego creado por Julian Gergolet y Santiago Aguero"
+
+## Autores: 
+*Gergolet, Julian  
+*Agüero, Santiago
+
+## Tecnologias Usadas:
+*HTML5
+*CSS3
+
 
 ### Requisitos del Primer Parcial
 - [ ] El proyecto debe estar subido al repositorio adecuado "Proyecto2021-ApellidoAlumno1-ApellidoAlumno2"
