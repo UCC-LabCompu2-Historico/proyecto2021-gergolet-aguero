@@ -1,5 +1,5 @@
 # SUDOKU 
-Esta pagina pertenece a un juego creado por Julian Gergolet y Santiago Aguero"
+Esta pagina pertenece a un juego creado por Julian Gergolet y Santiago Aguero
 
 ## Autores: 
 *Gergolet, Julian  

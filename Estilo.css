@@ -17,7 +17,7 @@ section{
     background-color: #5764ec;
     border-radius: 6px;
     border: 3px solid #000000;
-    transition: all 500ms ease;
+    transition: all 400ms ease;
 }
 
 .BotonJUGAR:hover {
@@ -55,7 +55,7 @@ div.CajaGrande, div.CajaGrande2{
     border-radius: 15px;
 }
 .CajaAlargada{
-    margin: 20px 4.75cm;
+    margin: 20px 4.60cm;
     background: url(Imagenes/Fondo_Sudoku.jpg);
     border: 5px solid #181000;
     width: 70%;
@@ -178,7 +178,7 @@ div.CajaGrande2{
     bottom: 5px;
     left: 0;
     transition: all 0.3s ease;
-    color: rgba(0,0,0,0.4);
+    color: rgba(0, 0, 0, 0.5);
 }
 .form input:focus + .lbl-nombre .text-nomb,.form input:valid + .lbl-nombre .text-nomb{
     transform: translateY(-150%);
@@ -187,5 +187,63 @@ div.CajaGrande2{
 }
 .form input:focus + .lbl-nombre:after, .form input:valid + .lbl-nombre:after{
     transform: translateX(0%);
+}
+
+.empezar {
+    margin-left: 30cm;
+    margin-top: -12.7cm;
+    padding-bottom: 55px;
+    position: relative;
+    display: block;
+    height: 400PX;
+    width: 70px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background: url(Imagenes/Fondo_Sudoku.jpg);
+    color: #000000;
+    font-size: 15px;
+    overflow: hidden;
+    transition: all 500ms ease;
+    border: 4px solid #000000;
+    z-index: 0;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: "Cooper Black";
+    font-size: 25px;
+}
+.empezar::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    background-color: #3d8cd9;
+    transition: all 500ms ease;
+    z-index: -1;
+}
+
+.empezar-1::before {
+    left: -520px;
+    right: 0;
+    width: 100%;
+    height: 150%;
+    transition: all 1000ms ease;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px #3d8cd9, 0 0 20px #3d8cd9, 0 0 20px #3d8cd9;
+}
+.empezar-1:hover::before {
+    left: 520px;
+}
+.empezar-1:hover{
+border: 6px solid rgba(0,0,0,0.7);
+}
+@keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0,31,63,0.6);
+    }
+    100% {
+        box-shadow: 0 0 8px 16px rgba(32, 226, 215, 0);
+    }
 }
 
