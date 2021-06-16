@@ -1,85 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>SUDOKU - Modos</title>
     <link rel="shortcut icon" href="Imagenes/iconosudoku.png" type="image/png">
     <link rel="stylesheet" href="Estilo.css" type="text/css">
     <link rel="stylesheet" href="EstiloIconos.css" type="text/css">
-    <canva></canva>
+    <script src="funcionesPostJugar.js"></script>
 </head>
-<body>
-<nav>
-    <a type=button" href="index.html" class="Volver_Atras">&#8249;</a>
+<body id="jugar">
+<canvas onload="BoxWhite()" id="mycanvas" class="sty" width="750px" height="625px"></canvas>
+<nav id="atras">
+    <a type="button" href="index.html" class="Volver_Atras">&#8249;</a>
 </nav>
-<div class="CajaGrande">
-    <h2>MODO DE JUEGO</h2>
-    <form class="formulario">
-        <div class="CajaPequeña">
-            <input type="radio" name="radioButton_modo" id="M1" value="modo1" required>
-            <label for="M1">MODO 1 </label>
-        </div>
-        <br></br>
-        <div class="CajaPequeña">
-            <input type="radio" name="radioButton_modo" id="M2" value="modo2" required>
-            <label for="M2">MODO 2</label>
-        </div>
-    </form>
-</div>
 
-<div class="CajaGrande2">
-    <h2>PARTICIPANTES</h2>
-    <form class="form">
-
-        <input type="text" required>
-        <label class="lbl-nombre">
-                <span class="text-nomb">
-                    Jugador 1
-                </span>
-        </label>
-    </form>
-    <form class="form">
-
-
-        <input type="text" required>
-        <label class="lbl-nombre">
-                <span class="text-nomb">
-                    Jugador 2
-                </span>
-        </label>
-
-    </form>
-</div>
-
-<div class="CajaAlargada">
-    <h2>INSTRUCCIONES</h2>
-    <section>
-        <p> Modo 1: el juego comenzara con todos los casilleros vacios.
-        </p>
-        <p> Modo 2: el juego comenzara con 40 valores aleatorios.
-        </p>
-        <p>
-            <u>REGLAS</u>: el ganador será aquel que complete mas casillas. Aquel jugador que llegue a 3 queda eliminado del juego, y deberá esperar que el otro jugador termine su partida.
-        </p>
-    </section>
-</div>
-    <div>
-        <button class="empezar empezar-1">
-            <p>
-            E
-            </p>
-            M
-            <p>
-            P
-            </p>
-            E
-            </p>
-            Z
-            <p>
-            A
-            </p>
-            R
-        </button>
+<div class="cajas">
+    <div class="CajaGrande">
+        <h2 id="modj">MODO DE JUEGO</h2>
+        <form id="diff" class="formulario">
+            <div class="CajaPequeña">
+                <input type="radio" name="diff" id="easy" value="facil" >
+                <label class="labfac" for="easy">FÁCIL</label>
+            </div>
+            <br>
+            <div class="CajaPequeña">
+                <input type="radio" name="diff" id="med" value="medio" checked>
+                <label class="labmed" for="med">MEDIO</label>
+            </div>
+            <br>
+            <div class="CajaPequeña">
+                <input type="radio" name="diff" id="dif" value="dificil">
+                <label class="labdif" for="dif">DIFÍCIL</label>
+            </div>
+        </form>
     </div>
+
+    <div class="CajaGrande2">
+        <form class="form">
+
+            <input type="text" id="nombre" onkeypress="return SoloLetras(event);"required>
+            <label for="nombre" class="lbl-nombre">
+                        <span class="text-nomb">
+                            Nombre
+                        </span>
+            </label>
+        </form>
+
+        <div id="time">
+            <label><input id="time-1" type="radio" name="time" value="3min" >3 Min</label>
+            <label><input id="time-2" type="radio" name="time" value="5min" checked>5 Min</label>
+            <label><input id="time-3" type="radio" name="time" value="10min">10 Min</label>
+        </div>
+
+    </div>
+
+</div>
+
+<div>
+    <button id="empezar" class="empezar empezar-1">
+        E M P E Z A R
+    </button>
+</div>
+
+
+<div id="stats">
+    <p id="timer"></p>
+    <p id="lives"></p>
+</div>
+
+<div id="game">
+    <div id="board"></div>
+    <div id="number-container" class="hidden">
+        <p id="uno">1</p>
+        <p id="dos">2</p>
+        <p id="tres">3</p>
+        <p id="cuatro">4</p>
+        <p id="cinco">5</p>
+        <p id="seis">6</p>
+        <p id="siete">7</p>
+        <p id="ocho">8</p>
+        <p id="nueve">9</p>
+    </div>
+</div>
+
 </body>
 </html>

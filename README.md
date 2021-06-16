@@ -2,8 +2,8 @@
 Esta pagina pertenece a un juego creado por Julian Gergolet y Santiago Aguero
 
 ## Autores: 
-*Gergolet, Julian  
-*Agüero, Santiago
+* Gergolet, Julian  
+* Agüero, Santiago
 
 ## Tecnologias Usadas:
 *HTML5

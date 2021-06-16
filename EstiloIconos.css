@@ -12,8 +12,8 @@
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: never;
+  font-family: 'icomoon';
+  speak-as: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -29,23 +29,21 @@
   content: "\ea0c";
   color: #000707;
   font-size: 40px;
-  margin-left: 31cm;
-  margin-right: -17px;
+  margin-left: 97%;
+
 }
 .Volver_Atras{
   color: #000707;
   font-size: 30px;
   text-decoration: none;
   width: 37px;
-  height: 30px;
+  height: 37px;
   display: inline-block;
   border: 2px solid #001f3f;
   border-radius: 50%;
   background: rgba(0,0,0,0.3);
-  text-align: center;
-  padding-bottom: 7px;
-  margin-top: 10px;
   transition: all 500ms ease;
+  text-align: center;
 }
 .Volver_Atras:hover{
   background: rgba(0, 18, 215,0.1);
@@ -55,19 +53,23 @@
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.5);
-  transition: all 500ms ease;
   opacity: 0;
   visibility: hidden;
 }
 #Sub1:checked ~ .modal{
+  transition: all 500ms ease;
+  position: fixed;
   opacity: 1;
   visibility: visible;
 }
 .contenedor{
   width: 400px;
   height: 300px;
-  margin: 4cm 11.3cm;
+  border-radius: 15px;
+  margin: 10em auto;
   background: #fff;
   box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
   transition: all 500ms ease;
@@ -78,8 +80,10 @@
   transform: translateY(0%);
 }
 .contenedor header{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   padding: 10px;
-  background: #5764ec;
+  background: #5e9ec3;
   color: #fff;
 }
 .contenedor label{
@@ -89,10 +93,17 @@
   color: #fff;
   font-size: 15px;
   cursor: pointer;
+  transition: color .3s;
 }
+
+.contenedor label:hover  {
+  color: rgb(0, 0, 0);
+  transition: color .3s;
+}
+
 .contenido{
-  width: 100%;
   padding: 10px;
+  text-align: justify;
 }
 .contenido h3{
   margin-bottom: 10px;
