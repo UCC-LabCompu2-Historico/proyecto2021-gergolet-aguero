@@ -9,6 +9,8 @@ Esta pagina pertenece a un juego creado por Julian Gergolet y Santiago Aguero
 *HTML5
 *CSS3
 
+Link al sitio: [PROYECTO SUDOKU 2021](https://ucc-labcompu2.github.io/proyecto2021-gergolet-aguero/)
+
 
 ### Requisitos del Primer Parcial
 - [ ] El proyecto debe estar subido al repositorio adecuado "Proyecto2021-ApellidoAlumno1-ApellidoAlumno2"
