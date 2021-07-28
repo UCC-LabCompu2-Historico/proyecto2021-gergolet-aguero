@@ -2,56 +2,86 @@ body {
     background: url(Imagenes/GIFSUDOKUSAWE2.gif);
     background-repeat: repeat;
     background-size: 100%;
+    animation-name: opacidad;
+    animation-duration: 3s;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+
 .sty {
-    border:1px solid #000000;
     background: url(Imagenes/Fondo_Sudoku.jpg);
-    margin-bottom: -23.5cm;
-    margin-left: 22%;
+    margin: 4em auto 0;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.6);
+    border: 3px solid #8e8e8e6b;
 }
-section{
-    font-family: "Bahnschrift";
+
+#stats {
+    margin-top: -43.4em;
 }
+
+#logo{
+    width: 1cm;
+    height: 1cm;
+}
+
 .BotonJUGAR {
-    font-family: "Bauhaus 93";
+    cursor: pointer;
+    display: block;
     text-decoration: none;
     padding: 10px;
-    margin-top: 20px;
-    margin-left: 47.19%;
-    font-size: 20px;
+    margin: 20px auto;
     color: #ffffff;
-    background-color: #5764ec;
-    border-radius: 6px;
-    border: 3px solid #000000;
-    transition: margin-left 1s ease;
-    animation-name: opacidad;
-    animation-duration: 2s;
+    background-color: rgb(197 194 194);
+    border-radius: 10px;
+    border: 3px solid #c7c7c7;
+    animation-name: rotar;
+    animation-delay: 1s;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 25px;
+    box-shadow: 0px 1px 0px #c7c8ca, 0px 2px 0px #b1b3b6, 0px 3px 0px #9d9fa2, 0px 4px 0px #8a8c8e, 0px 5px 0px #77787b, 0px 6px 0px #636466, 0px 7px 0px #4d4d4f, 0px 8px 7px #001135;
+    transition: font-size .4s ease, padding .4s ease, color .4s ease, background-color .4s ease, border .4s ease, margin .4s ease;
+    z-index: 10;
 }
 
 .BotonJUGAR:hover {
-    color: #5764ec;
+    color: #bdbcbc;
     background-color: #ffffff;
-    transform: scale(1.1);
+    border: 3px solid #e0e0e0;
+    padding: 13px;
+    margin: 15px auto;
+    font-size: 28px;
     transition: all .4s;
 }
 
 h1 {
-    color: #000000;
-    font-family: "Bauhaus 93";
+    font-family: 'Bauhaus 93' , Source Sans Pro;
     text-align: center;
     padding: 1cm;
     margin-bottom: -1.5cm;
     font-size: 4cm;
-    margin-top: 5%;
-    animation-name: opacidad;
-    animation-duration: 1s;
-
+    margin-top: 4%;
+    animation-name: escala;
+    animation-delay: 1s;
+    animation-duration: .4s;
+    animation-direction: alternate;
+    animation-iteration-count: 4;
+    text-shadow: 0px 1px 0px #5980d0, 0px 2px 0px #3e6db3, 0px 3px 0px #386cb9, 0px 4px 0px #3f6994, 0px 5px 0px #31619c, 0px 6px 0px #265e94, 0px 7px 0px #23518c, 0px 8px 7px #0b3c73;
+    color: rgb(181 230 249);
 }
 h2{
-    font-family: "Copperplate Gothic Light";
-    color: #000000;
-    font-size: 20px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 28px;
     text-align: center;
+    margin-top: 4px;
+    text-shadow: 0px 1px 0px #5980d0, 0px 2px 0px #3e6db3, 0px 3px 0px #386cb9, 0px 4px 0px #3f6994, 0px 5px 0px #31619c, 0px 6px 0px #265e94, 0px 7px 0px #23518c, 0px 8px 7px #0b3c73;
+    color: rgb(181 230 249);
 }
 h6{
     position: absolute;
@@ -63,14 +93,19 @@ h6{
 }
 
 div.CajaGrande, div.CajaGrande2{
-    border: 5px solid #181000;
+    border: 2px solid #e0e0e0;
     background: url(Imagenes/Fondo_Sudoku.jpg);
-    width: 35%;
-    height: 90px;
+    width: 26em;
+    height: 6em;
     border-radius: 15px;
     margin-top: -30px;
-    padding: 5px 5px;
+    padding: 10px 10px;
+    z-index: 100;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    box-shadow: 0px 1px 0px #c7c8ca, 0px 2px 0px #b1b3b6, 0px 3px 0px #9d9fa2, 0px 4px 0px #8a8c8e, 0px 5px 0px #77787b, 0px 6px 0px #636466, 0px 7px 0px #4d4d4f, 0px 8px 7px #001135;
 }
+
 div.CajaGrande{
     display: inline-block;
     position: relative;
@@ -78,7 +113,7 @@ div.CajaGrande{
 }
 div.CajaGrande2{
     right: 0;
-    margin-right: 10.3%;
+    margin-right: 11%;
     display: inline-block;
     position: absolute;
 }
@@ -93,87 +128,103 @@ div.CajaGrande2{
 #Sub1{
     margin: auto;
 }
-#Sub2{
-    color: #130101;
-    font-family: "Book Antiqua";
-    font-size: 20px;
+
+#modj{
+    margin-bottom: 2.4em;
+}
+
+.CajaPequeña {
+    margin-top: -36px;
+}
+
+.labfac{
+    margin-top: -0.58em;
+}
+
+.labmed{
+    left: 10.15em;
+    margin-top: 0.47em;
+}
+
+.labdif{
+    right: 10px;
+    margin-top: 1.47em;
+}
+
+#time--2 {
+    margin-left: 9.65em;
+}
+
+#time--3 {
+    margin-left: 19.66em;
 }
 
 .formulario input[type="radio"]{
     display: none;
 }
 
-#modj{
-    margin-bottom: 2.5em;
+.forTimer input[type="radio"]{
+    display: none;
 }
 
-.CajaPequeña {
-    margin-top: -28px;
-}
-
-.labmed{
-    margin-left: 11em;
-    margin-top: 10px;
-}
-
-.labdif{
-    margin-left: 22em;
-    margin-top: 19.1px;
-}
-
-.formulario .CajaPequeña label{
-    padding: 5px 15px 5px 45px;
-    display:inline-block;
+.formulario .CajaPequeña label, .forTimer .tiempo label{
+    padding: 5px 15px 5px 40px;
     position: absolute;
     font-size: 1em;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
-    -webkit-transition:  all 500ms ease ;
-    -o-transition:  all 500ms ease ;
     transition: all 500ms ease;
 }
-.formulario .CajaPequeña label:hover{
-    background: #bee5fb;
+.formulario .CajaPequeña label:hover, .forTimer .tiempo label:hover{
+    background: #c4e6fa;
 }
-.formulario .CajaPequeña label:before{
+.formulario .CajaPequeña label:before, .forTimer .tiempo label:before{
     content:"";
     width: 15px;
     height: 15px;
-    display: inline-block;
     background: none;
     border: 2px solid #001f3f;
     border-radius: 50%;
     position: absolute;
     left: 15px;
+    margin-top: 0.07em;
 }
-.formulario input[type="radio"]:checked + label{
-    padding: 5px 30px;
-    background: #63aeda;
-    border-radius: 2px;
+
+.formulario input[type="radio"]:checked + label, .tiempo input[type="radio"]:checked + label{
+    padding: 5px 27.5px;
+    background: #5ab8de;
+    border-radius: 5px;
     color: #fff;
 }
+
 .formulario input[type="radio"]:checked + label:before{
     display:none;
 }
+
+.forTimer input[type="radio"]:checked + label:before{
+    display:none;
+}
+
 .form{
     width: 100%;
     height: 50px;
     position: relative;
     overflow: hidden;
+    margin-top: 0.2em;
+    margin-bottom: 0.8em;
 }
 
-#time {
-    margin-top: 10px;
-}
 .form input{
     width: 100%;
     height: 100%;
     background: none;
-    color: #001f3f;
+    color: #5e6063;
     padding-top: 30px;
     border: none;
     outline: 0px;
     margin-top: -16px;
+    font-size: large;
+    font-weight: bold;
 }
 .form .lbl-nombre{
     position: absolute;
@@ -191,7 +242,7 @@ div.CajaGrande2{
     bottom: -1px;
     width: 100%;
     height: 100%;
-    border-bottom: 3px solid #4f89bd;
+    border-bottom: 3px solid #299bc8;
     transform: translateX(-100%);
     transition: all 0.3s ease;
 }
@@ -211,30 +262,27 @@ div.CajaGrande2{
 .form input:focus + .lbl-nombre:after, .form input:valid + .lbl-nombre:after{
     transform: translateX(0%);
 }
-#empezar{
-    margin-left: 14cm;
-}
+
 .empezar {
-    margin: auto;
+    margin: 1.8em auto 0;
     justify-content: center;
     position: relative;
     display: block;
     height: 50PX;
     width: 250px;
-    border-radius: 4px;
+    border-radius: 40px;
     text-transform: uppercase;
     background: url(Imagenes/Fondo_Sudoku.jpg);
-    color: #000000;
+    color: #5d5d5d;
     overflow: hidden;
     transition: all 500ms ease;
-    border: 4px solid #000000;
-    z-index: 1;
+    border: 2px solid #e0e0e0;
+    z-index: 0;
     font-weight: 700;
     cursor: pointer;
-    font-family: "Cooper Black";
-    font-size: 20px;
-    margin-top: 15px;
-
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 23px;
+    box-shadow: 0px 1px 0px #c7c8ca, 0px 2px 0px #b1b3b6, 0px 3px 0px #9d9fa2, 0px 4px 0px #8a8c8e, 0px 5px 0px #77787b, 0px 6px 0px #636466, 0px 7px 0px #4d4d4f, 0px 8px 7px #001135;
 }
 .empezar::before {
     content: "";
@@ -243,23 +291,24 @@ div.CajaGrande2{
     right: 0;
     top: 0;
     margin: auto;
-    background-color: #3d8cd9;
+    background-color: rgb(255, 170, 139);
     transition: all 500ms ease;
     z-index: -1;
 }
 
 .empezar-1::before {
-    left: -520px;
+    left: -310px;
     right: 0;
     width: 100%;
     height: 150%;
     transition: all 1s ease;
     transform: rotate(45deg);
-    box-shadow: 0 0 10px #3d8cd9, 0 0 20px #3d8cd9, 0 0 20px #3d8cd9;
+    box-shadow: 0 0 10px rgb(255, 170, 139), 0 0 20px rgb(255, 170, 139), 0 0 20px rgb(255, 170, 139);
 }
 .empezar-1:hover::before {
-    left: 520px;
+    left: 180px;
 }
+
 .empezar-1:hover{
     transform: scale(1.1);
 }
@@ -273,9 +322,10 @@ div.CajaGrande2{
     }
 }
 
-#jugar {
+#juego {
     animation-name: opacidad;
-    animation-duration: 2s;
+    animation-duration: 2.5s;
+    min-height: 59em;
 }
 
 @keyframes opacidad {
@@ -288,11 +338,58 @@ div.CajaGrande2{
     }
 }
 
-/* aqui comienza el estilo del tablero */
+@keyframes escala {
 
-.hidden {
-    display: none;
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(1.13);
+    }
+
 }
+
+@keyframes rotar {
+    80%{
+        transform: rotate(0);
+    }
+
+    82.5%{
+        transform: rotate(-10deg);
+    }
+
+    85%{
+        transform: rotate(0);
+    }
+
+    87.5%{
+        transform: rotate(10deg);
+    }
+
+    90%{
+        transform: rotate(0);
+    }
+
+    92.5%{
+        transform: rotate(-10deg);
+    }
+
+    95%{
+        transform: rotate(0);
+    }
+
+    97.5%{
+        transform: rotate(10deg);
+    }
+
+    100%{
+        transform: rotate(0);
+    }
+
+}
+
+/* aqui comienza el estilo del tablero */
 
 #setup-game {
     display: flex;
@@ -312,21 +409,37 @@ button {
 }
 
 p#timer, p#lives {
-    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    font-size: 25px;
     text-align:center;
+    text-shadow: 0 0 0.1em rgb(255, 244, 244), 0 0 0.2em rgb(253, 237, 228), 0 0 0.3em rgb(253, 163, 130), 0 0 0.4em rgb(248, 154, 120), 0 0 0.6em rgb(253, 148, 110), 0 0 8em rgb(253, 141, 100), 0 0 1em rgb(251, 133, 90), 0 0 1.2em rgb(255, 127, 80);
+    color: rgb(255, 255, 255);
 }
 p#timer{
     margin-right: 25cm;
 }
 p#lives{
     margin-left: 28cm;
-    margin-top: -1.5cm;
+    margin-top: -1.4cm;
 }
 #game {
-    display:flex;
     justify-content: center;
+    margin-right: 1em;
+    color: #636363;
+    font-family: 'Roboto';
+    font-weight: 100;
+    margin-top: -0.3em;
 }
+
+.flex{
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
 #number-container > p {
     border: 1px solid black;
     border-radius: 20%;
@@ -343,7 +456,7 @@ p#lives{
 }
 #board {
     padding-top: 10px;
-    margin-top: 10px;
+    margin-top: 11.5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -353,7 +466,7 @@ p#lives{
     z-index: 1;
 }
 .tile {
-    border: 1px solid black;
+    border: 1px solid #636363;
     width: 60px;
     height: 60px;
     text-align: center;
@@ -361,18 +474,64 @@ p#lives{
     vertical-align: middle;
     font-size: 40pt;
 }
-p.selected {
-    background-color: lightblue;
+#board p.selected {
+    background-color: #fbe5ce;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.6);
+    transition: all 0.1s;
 }
+
+#number-container p.selected {
+    background-color: #fbe5ce;
+    transform: scale(1.05);
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+}
+
 p.incorrect {
-    color: red;
+    color: rgb(255, 0, 0) !important;
 }
+
+p.correct {
+    color: #68c2e8;
+}
+
 .rightBorder {
-    border-right: 4px solid black;
+    border-right: 4px solid #5d5c5c;
 }
 .bottomBorder {
-    border-bottom: 4px solid black;
+    border-bottom: 4px solid #5d5c5c;
 }
-#time-2, #time-3 {
-    margin-left: 3.5cm;
+
+.topLeftBorder{
+    border-radius: 10px 0 0 0;
+}
+
+.topRightBorder{
+    border-radius: 0 10px 0 0;
+}
+
+.bottomRightBorder{
+    border-radius: 0 0 10px 0;
+}
+
+.bottomLeftBorder{
+    border-radius: 0 0 0 10px;
+}
+
+p#uno:hover, p#dos:hover, p#tres:hover, p#cuatro:hover, p#cinco:hover, p#seis:hover, p#siete:hover, p#ocho:hover, p#nueve:hover {
+    transform: scale(1.05);
+    color: rgb(255, 127, 80);
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.6);
+    transition: all 0.1s;
+}
+
+.responsive2{
+    margin-top: -0.3em !important;
+}
+
+.swal-modal {
+    font-family: 'Source Sans Pro', sans-serif;
+    border-radius: 10px;
+    background-color: #ececec;
+    box-shadow: 0 0 20px 5px #252525;
 }

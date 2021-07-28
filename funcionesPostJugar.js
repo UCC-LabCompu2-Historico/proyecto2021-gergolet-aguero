@@ -4,7 +4,7 @@ const facil = [
     "685329174971485326234761859362574981549618732718293465823946517197852643456137298"
 ];
 const medio = [
-    "--9-------4----6-758-31----15--4-36-------4-8----9-------75----3-------1--2--3--",
+    "--9-------4----6-758-31----15--4-36-------4-8----9-------75----3-------1--2--3---",
     "619472583243985617587316924158247369926531478734698152891754236365829741472163895"
 ];
 const dificil = [
@@ -20,17 +20,17 @@ var selectedNum;
 var selectedTile;
 var disableSelect;
 
-/**
+/*
  * Valida el Ingreso en el input "Nombre" verificando que sean solo letras;
  * @method SoloLetras
  * @param (key) e-- ingreso por teclado en el input.
- * @return si ecneuntra elementos que no son letras, false acompañado de un alert.
- */
+ * @return si encuentra elementos que no son letras, false acompañado de un alert.
+*/
 function SoloLetras(e)
 {
     key = e.keyCode || e.which;
     tecla = String.fromCharCode(key).toString();
-    letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚabcdefghijklmnopqrstuvwxyzáéíóúñÑüÜ";
+    letras = " ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚabcdefghijklmnopqrstuvwxyzáéíóúñÑüÜ";
     especiales = [8,13];
     tecla_especial = false;
     for(var i in especiales) {
@@ -41,22 +41,20 @@ function SoloLetras(e)
     }
     if(letras.indexOf(tecla) == -1 && !tecla_especial)
     {
-        alert("Ingresar solo letras");
+        swal({
+            title: "Solo debes ingresar letras",
+            icon: "error",
+            button: "Entendido",
+        });
         return false;
     }
-}
-/**
- * Funcion creadora del canvas
- * @method BoxWhite
- */
-function BoxWhite(){
-    var canvas=document.getElementById("myCanvas");
-    var ctx=canvas.getContext("2d")
 }
 
 //Correr el inicio del juego - funcion cuando el boton es clickeado
 window.onload = function() {
     id("empezar").addEventListener("click", startGame);
+
+
     //Agregue un event listener a cada número en el contenedor de números
     for (let i=0; i<id("number-container").children.length; i++){
         id("number-container").children[i].addEventListener("click", function (){
@@ -82,16 +80,20 @@ window.onload = function() {
     }
 }
 
-/**
+/*
  * Selecciona un tablero segun el id que haya elegido (easy, med, dif) y hace visibles a los numeros antes ocultos (number-container)
  * @method startGame
  * @param (string) id - (llamados dentro de la funcion) los id de los 3 tipos de juego: facil, medio, dificil (este ultimo no se llama porque se llama de manera automatica con el ultimo else)
  * @param (string) id - el id number-container (mosaicos chicos al cosatdo del tablero con los numeros que van del 1 al 9)
- */
+*/
 function startGame() {
-//Elegir dificultad en el tablero
+    //Elegir dificultad en el tablero
     if(document.getElementById("nombre").value==""){
-        alert("ES OBLIGATORIO INGRESAR EL NOMBRE");
+        swal({
+            title: "ES OBLIGATORIO INGRESAR EL NOMBRE",
+            icon: "error",
+            button: "Entendido",
+        });
     }
     else{
         let board;
@@ -108,21 +110,22 @@ function startGame() {
         startTimer();
         //Muestra el numero en el contenedor
         id("number-container").classList.remove("hidden");
+        id("canvas").classList.remove("hidden");
+        id("game").classList.remove("hidden");
     }
 }
 
-
-/**
+/*
  * Comienza un conntador en reversa primeramente en segundos para los distintos id (180=3min, etc)
  * @method startTimer
  * @param (string) id - (llamados dentro de la funcion) Los 3 id de time: time-1, time-2, time-3 (este ultimo no se llama porque se llama de manera automatica con el ultimo else).
  * @param (string) id - (llamado dentro de la funcion) el id timer, para luego extraer su contenido y mandarlo a otra funcion.
- */
+*/
 function startTimer(){
     //Establece tiempo restante basado en lo ingresado
-    if(id("time-1").checked) timeRemaining = 180;
-    else if(id("time-2").checked) timeRemaining = 300;
-    else timeRemaining = 600;
+    if(id("time-1").checked) timeRemaining = 300;
+    else if(id("time-2").checked) timeRemaining = 600;
+    else timeRemaining = 1200;
     //Establece temporizador en el primer segundo
     id("timer").textContent = timeConversion(timeRemaining);
     //Establece que el temporizador se actualice cada segundo
@@ -134,14 +137,12 @@ function startTimer(){
     }, 1000)
 }
 
-
-/**
+/*
  * Conversor de tiempo. De segundos a formato 24hs (00:00)
  * @method timeConversion
  * @param (var) valor - El valor de timeRemaining (tiempo restante)
  * @return (let) valor - El tiempo por separado, minutos::segundos (00:00)
- */
-
+*/
 function timeConversion(time){
 //Cambia el formato del temporizador (mm:ss)
     let minutes = Math.floor(time/60);
@@ -151,13 +152,12 @@ function timeConversion(time){
     return minutes + ":" + seconds;
 }
 
-
-/**
+/*
  * Crea el tablero de 9x9 mosaicos
  * @method generateBoard
  * @param (let) valor - El valor de board definido en la funcion startGame segun la dificultad elegida
  * @param (string) id - (llamado dentro de la funcion) El id del tablero para agregarle appendChild;
- */
+*/
 function generateBoard(board) {
     //Limpiar tablero previo
     clearPrevious();
@@ -167,7 +167,7 @@ function generateBoard(board) {
     for(let i = 0; i < 81; i++){
         //Crear un nuevo elemento de parrafo
         let tile = document.createElement("p");
-//Si el mosaico no se supone que este en blanco
+        //Si el mosaico no se supone que este en blanco
         if (board.charAt(i) != "-"){
             //Establecer el texto del mosaico en el numero correcto
             tile.textContent = board.charAt(i);
@@ -187,13 +187,19 @@ function generateBoard(board) {
                             qsa(".tile")[i].classList.remove("selected");
                         }
                         //Añade seleccion y actualiza la variable
-                        tile.classList.add("selected");
-                        selectedTile = tile;
-                        updateMove();
+                        if(tile.classList.contains("correct") == false){
+                            tile.classList.add("selected");
+                            selectedTile = tile;
+                            updateMove();
+                        }
+                        else{
+                            selectedTile = null;
+                        }
                     }
                 }
             });
         }
+
         tile.id = idCount;
         idCount ++;
         tile.classList.add("tile");
@@ -203,17 +209,29 @@ function generateBoard(board) {
         if((tile.id + 1) % 9 == 3 || (tile.id + 1) % 9 == 6){
             tile.classList.add("rightBorder");
         }
+        if ((tile.id == 0)){
+            tile.classList.add("topLeftBorder");
+        }
+        if ((tile.id == 8)){
+            tile.classList.add("topRightBorder");
+        }
+        if ((tile.id == 72)){
+            tile.classList.add("bottomLeftBorder");
+        }
+        if ((tile.id == 80)){
+            tile.classList.add("bottomRightBorder");
+        }
         //Añade mosaico al tablero
         id("board").appendChild(tile);
     }
 }
 
 
-/**
+/*
  * Realiza todos los cambios al tocar un numero primero y un mosaico despues, o viceversa.
  * @method updateMove
  * @param (string) id - (llamado dentro de la funcion) El id de vidas para restarlas en caso de que checkCorrect sea falso.
- */
+*/
 function updateMove(){
     //Si un mosaico y un numero son seleccionados
     if(selectedTile && selectedNum){
@@ -221,6 +239,7 @@ function updateMove(){
         selectedTile.textContent = selectedNum.textContent;
         //Si el numero corresponde al numero solucion
         if(checkCorrect(selectedTile)){
+            selectedTile.classList.add("correct")
             //Deselecciona el mosaico
             selectedTile.classList.remove("selected");
             selectedNum.classList.remove("selected");
@@ -233,7 +252,7 @@ function updateMove(){
             }
             //Si el numero no corresponde a la solucion...
         }else{
-            //Inhabilita el numero seleccionado por un segundo
+            //Inhabilita la seleccion de todos los mosaicos por un segundo
             disableSelect = true;
             //El mosaico se pone rojo
             selectedTile.classList.add("incorrect");
@@ -258,52 +277,122 @@ function updateMove(){
                 //Limpia el texto de el mosaico y limpia las variables seleccionadas
                 selectedTile.textContent= "";
                 selectedTile = null;
-                selectedNUm = null;
+                selectedNum = null;
             },1000);
         }
     }
 }
 
 
-/**
+/*
  * Verifica cuando TODO el tablero esta completo
  * @method checkDone
  * @return true para tablero sin mosaicos vacios("") y false para lo contrario
- */
+*/
 function checkDone(){
     let tiles = qsa(".tile");
-    for(let i=0; i<tile.length;i++){
+    for(let i=0; i<tiles.length;i++){
         if(tiles[i].textContent === "") return false;
     }
     return true;
 }
 
-
-/**
+/*
  * Bloquea todo los movimientos (termina el juego).
  * @method endGame
  * @param (string) id - (llamado dentro de la funcion) El id de vidas
- */
+*/
 function endGame() {
+
+    //Creamos el canvas
+    var canvas=document.querySelector("#myCanvas");
+    var ctx=canvas.getContext("2d");
+
     //Desactiva lo movimientos y para el temporizador
     disableSelect=true;
     clearTimeout(timer);
-    if(lives===0 || timeRemaining === 0){
+
+    let contador=1; //sirve para aumentar el texto de 1 a 180
+    let contador2=180; //sirve para disminuir HASTA 20 el texto
+    var centerX = canvas.width/2;
+    var centerY = canvas.height/2;
+
+    if(lives === 0 || timeRemaining === 0){
+
+        id("game").classList.add("hidden");
+
+        var aumento = setInterval(() => {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.textAlign  = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillStyle = "rgb(255, 170, 139)";
+            ctx.fillText("PERDISTE", centerX, centerY);
+
+            if (contador<=180){
+                ctx.font = contador + "px Source Sans Pro";
+                contador = contador + 0.5;
+            }
+            else{
+                if (contador2 >= 20){
+                    ctx.font = contador2 + "px Source Sans Pro";
+                    contador2 = contador2 - 0.5;
+                }
+            }
+
+            if (contador2 < 20){
+                contador2=180;
+                contador=20;
+            }
+
+        }, 5);
+
         //Muestra si ganaste o perdiste
-        id("lives").textContent = "PERDISTE!!";
+        id("lives").textContent = null;
     }else{
-        id("lives").textContent = "GANASTE!!";
+
+        id("game").classList.add("hidden");
+
+        var aumento = setInterval(() => {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.textAlign  = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillStyle = "rgb(255, 170, 139)";
+            ctx.fillText("GANASTE", centerX, centerY);
+
+            if (contador<=180){
+                ctx.font = contador + "px Source Sans Pro";
+                contador = contador + 0.5;
+            }
+            else{
+                if (contador2 >= 20){
+                    ctx.font = contador2 + "px Source Sans Pro";
+                    contador2 = contador2 - 0.5;
+                }
+            }
+
+            if (contador2 < 20){
+                contador2=180;
+                contador=20;
+            }
+
+        }, 5);
+
+        id("lives").textContent = null;
+    }
+
+    document.getElementById("empezar").onclick = function(){
+        clearInterval (aumento);
+        ctx.clearRect(0,0,canvas.width,canvas.height);
     }
 }
 
-
-/**
+/*
  * Elige la solucion segun el nivel elegido.
  * @method checkCorrect
  * @param (var)  Mosaico Seleccionado
  * @param (string) id - (llamadas dentro de la funcion) las 3 id de los 3 niveles.
  * @return true or false segun si esta bien colocado o no el numero que espera el juego.
- */
+*/
 function checkCorrect(tile){
     //Establece la solucion basado en la dificultad seleccionada
     let solution;
@@ -311,15 +400,17 @@ function checkCorrect(tile){
     else if (id("med").checked) solution = medio[1];
     else solution = dificil[1];
     //Si el numero del mosaico corresponde a al numero de la solucion
-    if (solution.charAt(tile.id) === tile.textContent)return true;
+    if (solution.charAt(tile.id) === tile.textContent){
+        return true;
+    }
     else return false;
 }
 
-/**
+/*
  * Limpia el tablero anterior.
  * @method clearPrevious
  * @param (string) id - (llamada dentro de la funcion) el id number-container
- */
+*/
 function clearPrevious() {
     //Acceso total a los mosaicos
     let tiles = qsa(".tile");
@@ -338,10 +429,9 @@ function clearPrevious() {
     selectedNum = null;
 }
 
-
-/**
+/*
  * Funciones de Ayuda que retornan disntintos valores cuando son llamadas
- */
+*/
 //funciones de ayuda
 function id(id) {
     return document.getElementById(id);

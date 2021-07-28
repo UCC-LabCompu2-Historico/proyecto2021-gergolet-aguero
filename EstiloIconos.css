@@ -18,8 +18,12 @@
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
-
+  line-height: 0;
+  height: 25px;
+  width: 25px;
+  margin-left: 93%;
+  position: fixed;
+  margin-top: 20px;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,24 +33,34 @@
   content: "\ea0c";
   color: #000707;
   font-size: 40px;
-  margin-left: 97%;
-
+  cursor: pointer;
 }
 .Volver_Atras{
-  color: #000707;
+  color: #0e93bb;
   font-size: 30px;
   text-decoration: none;
-  width: 37px;
-  height: 37px;
+  width: 40px;
+  height: 40px;
   display: inline-block;
-  border: 2px solid #001f3f;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.3);
-  transition: all 500ms ease;
+  border: 2px solid #e0e0e0;
+  border-radius: 30%;
+  background: rgb(255, 255, 255);
+  transition: all 350ms ease;
   text-align: center;
+  margin: 5px 0 0 5px;
+  box-shadow: 0px 1px 0px #c7c8ca, 0px 2px 0px #b1b3b6, 0px 3px 0px #9d9fa2, 0px 4px 0px #8a8c8e, 0px 5px 0px #77787b, 0px 6px 0px #636466, 0px 7px 0px #4d4d4f, 0px 8px 7px #001135;
+  animation-name: atras;
+  animation-delay: .5s;
+  animation-iteration-count: 8;
+  animation-direction: alternate;
+  animation-duration: .4s;
 }
+
 .Volver_Atras:hover{
-  background: rgba(0, 18, 215,0.1);
+  transform: scale(0.95);
+  box-shadow: 0px 1px 0px #c7c8ca, 0px 2px 0px #b1b3b6, 0px 3px 0px #9d9fa2, 0px 4px 0px #8a8c8e, 0px 6px 5px #001135;
+  background-color: rgb(241, 241, 241);
+  text-shadow: 0 4px 6px rgb(100, 100, 100);
 }
 
 .modal{
@@ -58,6 +72,7 @@
   background: rgba(0,0,0,0.5);
   opacity: 0;
   visibility: hidden;
+  z-index: 1000;
 }
 #Sub1:checked ~ .modal{
   transition: all 500ms ease;
@@ -85,15 +100,18 @@
   padding: 10px;
   background: #5e9ec3;
   color: #fff;
+  font-family: 'Source Sans Pro';
+  font-size: 17px;
 }
 .contenedor label{
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 12px;
   color: #fff;
-  font-size: 15px;
+  font-size: 23px;
   cursor: pointer;
   transition: color .3s;
+  font-family: monospace;
 }
 
 .contenedor label:hover  {
@@ -102,8 +120,10 @@
 }
 
 .contenido{
-  padding: 10px;
+  padding: 6px 10px 10px;
+  font-family: helvetica neue;
   text-align: justify;
+  color: #545454;
 }
 .contenido h3{
   margin-bottom: 10px;
@@ -121,3 +141,12 @@
   cursor: pointer;
 }
 
+@keyframes atras{
+  0%{
+    margin: 5px 0 0 5px;
+  }
+
+  100%{
+    margin: 5px 0 0 20px;
+  }
+}

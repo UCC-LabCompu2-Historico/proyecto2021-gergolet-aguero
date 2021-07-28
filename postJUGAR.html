@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="Estilo.css" type="text/css">
     <link rel="stylesheet" href="EstiloIconos.css" type="text/css">
     <script src="funcionesPostJugar.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
 </head>
-<body id="jugar">
-<canvas onload="BoxWhite()" id="mycanvas" class="sty" width="750px" height="625px"></canvas>
+<body id="juego">
+
 <nav id="atras">
     <a type="button" href="index.html" class="Volver_Atras">&#8249;</a>
 </nav>
@@ -17,7 +20,7 @@
 <div class="cajas">
     <div class="CajaGrande">
         <h2 id="modj">MODO DE JUEGO</h2>
-        <form id="diff" class="formulario">
+        <div id="diff" class="formulario">
             <div class="CajaPequeña">
                 <input type="radio" name="diff" id="easy" value="facil" >
                 <label class="labfac" for="easy">FÁCIL</label>
@@ -32,24 +35,33 @@
                 <input type="radio" name="diff" id="dif" value="dificil">
                 <label class="labdif" for="dif">DIFÍCIL</label>
             </div>
-        </form>
+        </div>
     </div>
 
     <div class="CajaGrande2">
-        <form class="form">
+        <form class="form" onkeydown="return event.key !='Enter';">
 
-            <input type="text" id="nombre" onkeypress="return SoloLetras(event);"required>
+            <input type="text" id="nombre" name="nombre" onkeypress="return SoloLetras(event);" required autocomplete="off">
             <label for="nombre" class="lbl-nombre">
-                        <span class="text-nomb">
-                            Nombre
-                        </span>
+                            <span class="text-nomb">
+                                Nombre
+                            </span>
             </label>
         </form>
 
-        <div id="time">
-            <label><input id="time-1" type="radio" name="time" value="3min" >3 Min</label>
-            <label><input id="time-2" type="radio" name="time" value="5min" checked>5 Min</label>
-            <label><input id="time-3" type="radio" name="time" value="10min">10 Min</label>
+        <div id="time" class="forTimer">
+            <div id="time--1" class="tiempo">
+                <input id="time-1" type="radio" name="time" value="5min">
+                <label for="time-1">5 MIN</label>
+            </div>
+            <div id="time--2" class="tiempo">
+                <input id="time-2" type="radio" name="time" value="10min" checked>
+                <label for="time-2">10 MIN</label>
+            </div>
+            <div id="time--3" class="tiempo">
+                <input id="time-3" type="radio" name="time" value="20min">
+                <label for="time-3">20 MIN</label>
+            </div>
         </div>
 
     </div>
@@ -62,25 +74,34 @@
     </button>
 </div>
 
+<div id="cuadro">
 
-<div id="stats">
-    <p id="timer"></p>
-    <p id="lives"></p>
-</div>
+    <div id="jugar">
+        <div id="canvas" class="hidden">
+            <canvas id="myCanvas" class="sty" width="750px" height="625px"></canvas>
+        </div>
 
-<div id="game">
-    <div id="board"></div>
-    <div id="number-container" class="hidden">
-        <p id="uno">1</p>
-        <p id="dos">2</p>
-        <p id="tres">3</p>
-        <p id="cuatro">4</p>
-        <p id="cinco">5</p>
-        <p id="seis">6</p>
-        <p id="siete">7</p>
-        <p id="ocho">8</p>
-        <p id="nueve">9</p>
+        <div id="stats">
+            <p id="timer"></p>
+            <p id="lives"></p>
+        </div>
+
+        <div id="game" class="flex hidden">
+            <div id="board"></div>
+            <div id="number-container">
+                <p id="uno">1</p>
+                <p id="dos">2</p>
+                <p id="tres">3</p>
+                <p id="cuatro">4</p>
+                <p id="cinco">5</p>
+                <p id="seis">6</p>
+                <p id="siete">7</p>
+                <p id="ocho">8</p>
+                <p id="nueve">9</p>
+            </div>
+        </div>
     </div>
+
 </div>
 
 </body>
